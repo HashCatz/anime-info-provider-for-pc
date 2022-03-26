@@ -19,7 +19,7 @@ This Is a Anime,Manga info and airing dates of anime provider for linux and wind
 </p>
 
 
-## Usage💫
+## 💫Usage
 - Getting Anime Info As Webpages
 - Anime Direct Download Links
 - Anime Trailers,Opennings,Endings
@@ -49,6 +49,12 @@ python3 main.py
 
 ## ❔API That Used
 --> [Anilist API](https://anilist.co)
+
+## 👻Websites That Links Belong
+- [🌹Wco Streams](https://www.wcostream.com)
+- [😘Kiss Anime](https://kissanimes.pro)
+- [♻Anilist](https://anilist.com)
+- [♥YouTube](https://www.youtube.com)
 
 
 If There Any Problem You Can Contact Me At [Here](https://t.me/troj3n) or simply submit a pull request.
