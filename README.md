@@ -44,9 +44,11 @@ python3 main.py
 
 
 ## Python Libs That Used🐍
---> Requests
---> OS
+- Requests
+- OS
 
 ## API That Used❔
-`https://anilist.co`
+[Anilist API](https://anilist.co)
+
+
 If There Any Problem You Can Contact Me At [Here](https://t.me/troj3n) or simply submit a pull request.
