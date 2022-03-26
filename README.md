@@ -26,7 +26,7 @@ This Is a Anime,Manga info and airing dates of anime provider for linux and wind
 - Manga Info As text Files
 - Airing Dates of The Ongoing Animes
 
-### Platforms That Support👾
+### 👾Platforms That Support
 - Windows 7 +
 - Linux
 
@@ -37,18 +37,18 @@ cd Anime-Feeds-Provider
 pip3 install -r requirements.txt
 python3 main.py
 ```
-## Languages and Scripts Used🍭
+## 🍭Languages and Scripts Used
 - Python 3.09
 - HTML5
 - CSS
 
 
-## Python Libs That Used🐍
+## 🐍Python Libs That Used
 - Requests
 - OS
 
-## API That Used❔
-[Anilist API](https://anilist.co)
+## ❔API That Used
+--> [Anilist API](https://anilist.co)
 
 
 If There Any Problem You Can Contact Me At [Here](https://t.me/troj3n) or simply submit a pull request.
