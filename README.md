@@ -19,7 +19,14 @@ This Is a Anime,Manga info and airing dates of anime provider for linux and wind
 </p>
 
 
-### Platforms That Support
+## Usage💫
+- Getting Anime Info As Webpages
+- Anime Direct Download Links
+- Anime Trailers,Opennings,Endings
+- Manga Info As text Files
+- Airing Dates of The Ongoing Animes
+
+### Platforms That Support👾
 - Windows 7 +
 - Linux
 
@@ -30,3 +37,14 @@ cd Anime-Feeds-Provider
 pip3 install -r requirements.txt
 python3 main.py
 ```
+## Languages and Scripts Used🍭
+- Python 3.09
+- HTML5
+- CSS
+
+
+## Python Libs That Used🐍
+>> Requests
+>> OS
+
+
