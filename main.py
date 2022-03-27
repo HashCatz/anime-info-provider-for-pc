@@ -43,7 +43,7 @@ while True:
 ██║░░░░░██║░░██║╚█████╔╝░░╚██╔╝░░██║██████╔╝███████╗██║░░██║
 ╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝
 Version: 0.1                                       By HashCatz
-"""+"\n\nWhat Do You Want To Search?\n\n1 = Anime Info\n2 = Manga Info\n3 = Airing Dates\n4 = About Us")
+"""+"\n\nWhat Do You Want To Search?\n\n1 = Anime Info\n2 = Manga Info\n3 = Airing Dates\n4 = About Us\n\nIf You want to Leave Type 'Stop'")
     try:
         getting_id=int(input("\nEnter The Number :"))
     except:
@@ -52,6 +52,9 @@ Version: 0.1                                       By HashCatz
     if getting_id==1:
         while True:
             search = input("\nEnter The Name Of The Anime: ")
+            search=search.lower()
+            if search =="stop":
+                break    
             if len(search) == 0:
                 print("\nEnter The Name Baaaka!")
                 continue
@@ -213,7 +216,7 @@ Version: 0.1                                       By HashCatz
             </div>
             <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
                 <h2>Updates</h2>
-                <p>Stay update with our latest</p>
+                <p>Stay updated with our latest</p>
                 <div class="form-element">
                     <p>Our Community</p></span>
                     <button class="btn footer-btn"><a href="https://github.com/HashCatz">Here!</a></button>
@@ -282,42 +285,52 @@ Anime Info Collected By HasHCatz
                     ############################3------------------airing-----------------#####################333333
     elif getting_id==3:                
         while True:
-            airing=input("Enter A name of an anime: ")
-            if len(airing) == 0:
-                print("\nEnter The Name Baaaka!")
-                continue
-            else:
-                variables = {'search': airing}
-                response = requests.post(
-                    url, json={
-                        'query': queries.airing_query,
-                        'variables': variables
-                    }).json()['data']['Media']
-                msg = f"\n\nName: {response['title']['romaji']}({response['title']['native']})\n\n-> ID: {response['id']}"
-                if response['nextAiringEpisode']:
-                    time = response['nextAiringEpisode']['timeUntilAiring'] * 1000
-                    time = t(time)
-                    msg += f"\n\n-> Episode: {response['nextAiringEpisode']['episode']}\n\n-> Airing In: {time}"
-                else:
-                    msg += f"\n\n-> Episode: {response['episodes']}\n\n-> Status: N/A"
-                print(msg+"\n\nAiring Dates Collected By HashCatz\n--> https://github.com/HashCatz<--")
-                leave=input("\n\nWanna Continue? Y/N : ")
-                leave=leave.lower()
-                if len(leave) == 0:
-                    print("====>> Closing The Terminal! <<====")
+            try:
+                airing=input("Enter A name of an anime: ")
+                airing = airing.lower()
+                if airing =="stop":
                     break
-                elif leave=="y":
+                if len(airing) == 0:
+                    print("\nEnter The Name Baaaka!")
                     continue
-                elif leave=="n":
-                    break
                 else:
-                    print("====>> Closing The Terminal! <<====")
-                    break
+                    variables = {'search': airing}
+                    response = requests.post(
+                        url, json={
+                            'query': queries.airing_query,
+                            'variables': variables
+                        }).json()['data']['Media']
+                    msg = f"\n\nName: {response['title']['romaji']}({response['title']['native']})\n\n-> ID: {response['id']}"
+                    if response['nextAiringEpisode']:
+                        time = response['nextAiringEpisode']['timeUntilAiring'] * 1000
+                        time = t(time)
+                        msg += f"\n\n-> Episode: {response['nextAiringEpisode']['episode']}\n\n-> Airing In: {time}"
+                    else:
+                        msg += f"\n\n-> Episode: {response['episodes']}\n\n-> Status: N/A"
+                    print(msg+"\n\nAiring Dates Collected By HashCatz\n--> https://github.com/HashCatz<--")
+                    leave=input("\n\nWanna Continue? Y/N : ")
+                    leave=leave.lower()
+                    if len(leave) == 0:
+                        print("====>> Closing The Terminal! <<====")
+                        break
+                    elif leave=="y":
+                        continue
+                    elif leave=="n":
+                        break
+                    else:
+                        print("====>> Closing The Terminal! <<====")
+                        break
+            except:
+                    print("Check your Network connection and try again!")
+                    continue
                 ###########################------------------------manga--------------------#####################################33
     elif getting_id==2:
         while True:
             try:
                 manga=input("Enter A name of an manga: ")
+                manga = manga.lower()
+                if manga =="stop":
+                    break
                 if len(manga) == 0:
                     print("\nEnter The Name Baaaka!")
                 else:
@@ -405,7 +418,7 @@ Devs:
     -> dulnithLiyanage
     
 Description:
-We Are Two Sri Lankan Programmers Who Build Programs.You Can Get Ours Repos From : https://github.com/HashCatz
+We Are Two Sri Lankan Programmers Who Build Programs.You Can Get Our Repos From : https://github.com/HashCatz
 
 Languages and Scripts Used:
     => Python
