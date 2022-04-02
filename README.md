@@ -1,5 +1,5 @@
 # 😍Anime Info Provider For PC👻
-This Is a Anime,Manga info and airing dates of anime provider for linux and windows which use anilist.co API and wrote using python 3.09
+This Is a Anime,Manga info,Character Info and airing dates of anime provider for linux and windows which use anilist.co API and wrote using python 3.09
 
 <img align="justify" src="https://wallpapercave.com/dwp1x/wp4304758.png">
 <p align="center">
@@ -25,6 +25,7 @@ This Is a Anime,Manga info and airing dates of anime provider for linux and wind
 - Anime Trailers,Opennings,Endings
 - Manga Info As text Files
 - Airing Dates of The Ongoing Animes
+- Character Info (New Feature)
 
 ### 👾Platforms That Support
 - Windows 7 +
