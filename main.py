@@ -42,8 +42,8 @@ while True:
 ██╔═══╝░██╔══██╗██║░░██║░╚████╔╝░██║██║░░██║██╔══╝░░██╔══██╗
 ██║░░░░░██║░░██║╚█████╔╝░░╚██╔╝░░██║██████╔╝███████╗██║░░██║
 ╚═╝░░░░░╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝
-Version: 0.1                                       By HashCatz
-"""+"\n\nWhat Do You Want To Search?\n\n1 = Anime Info\n2 = Manga Info\n3 = Airing Dates\n4 = About Us\n\nIf You want to Leave Type 'Stop'")
+Version: 0.2                                       By HashCatz
+"""+"\n\nWhat Do You Want To Search?\n\n1 = Anime Info\n2 = Manga Info\n3 = Airing Dates\n4 = Character Info\n5 = About Us\n\nIf You want to Leave Type 'Stop'")
     try:
         getting_id=int(input("\nEnter The Number :"))
     except:
@@ -51,7 +51,7 @@ Version: 0.1                                       By HashCatz
         continue
     if getting_id==1:
         while True:
-            search = input("\nEnter The Name Of The Anime: ")
+            search = str(input("\nEnter The Name Of The Anime: "))
             search=search.lower()
             if search =="stop":
                 break    
@@ -119,7 +119,6 @@ Version: 0.1                                       By HashCatz
     <link rel="stylesheet" href="./css/Style.css">
 </head>
 <body>
-
     <nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
@@ -257,7 +256,7 @@ ___________________________________________________
 Anime Info Collected By HasHCatz
 --> https://github.com/HashCatz <--
 """)
-                        os.system(search+".html")
+                        
                         if image:
                                 try:
                                     response = requests.get(f"{image}")
@@ -268,6 +267,7 @@ Anime Info Collected By HasHCatz
                                     print("There Aint Any Images!")
                         else:
                             print("There Aint Any Images!")
+                        os.system(search+".html")
                         leave=input("\n\nWanna Continue? Y/N : ")
                         leave=leave.lower()
                         if len(leave) == 0:
@@ -410,7 +410,7 @@ Manga Info Collected By HasHCatz
             except:
                 print("Check Your Network Connection and try again")
                 
-    elif getting_id==4:
+    elif getting_id==5:
         print("""
 About Us...
 Devs:
@@ -442,6 +442,57 @@ There Will be Some New Updates So Stay Tuned..
 
 """)
         continue
+    elif getting_id==4:
+        while True:
+            try:
+                search=input("Enter The Name Of The Character: ")
+                search = search.lower()
+                if search =="stop":
+                    break
+                if len(search) == 0:
+                    print("\nEnter The Name Baaaka!")
+                else: 
+                    variables = {'query': search}
+                    json = requests.post(
+                        url, json={
+                            'query': queries.character_query,
+                            'variables': variables
+                        }).json()
+                    if 'errors' in json.keys():
+                        print('Character not found')
+                        continue
+                    if json:
+                        json = json['data']['Character']
+                        msg = f"\n\n{json.get('name').get('full')}({json.get('name').get('native')})\n\n"
+                        description = f"Description:\n\n{json['description']}"
+                        site_url = json.get('siteUrl')
+                        msg += shorten(description, site_url)
+                        image = json.get('image', None)
+                    print(msg)
+                    if image:
+                            try:
+                                response = requests.get(f"{image}")
+                                file = open(search+".jpg", "wb")
+                                file.write(response.content)
+                                print("\n\nThere is A picture in the directory check it too..")
+                            except:
+                                print("There Aint Any Images!")
+                    leave=input("\n\nWanna Continue? Y/N : ")
+                    leave=leave.lower()
+                    if len(leave) == 0:
+                        print("====>> Closing The Terminal! <<====")
+                        break
+                    elif leave=="y":
+                        continue
+                    elif leave=="n":
+                        break
+                    else:
+                        print("====>> Closing The Terminal! <<====")
+                        break                    
+            except:
+                print("Check Your Network Connection and try again")
+                
+                
     else:
         print("\n\nEnter A Valid Number!!")
     left=input('If you want to close the terminal Type Y else Press Enter\n>>>')
