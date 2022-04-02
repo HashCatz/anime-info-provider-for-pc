@@ -34,7 +34,7 @@ This Is a Anime,Manga info,Character Info and airing dates of anime provider for
 ## 🏃🏻‍♂️Run
 ```
 git clone https://github.com/HashCatz/anime-info-provider-for-pc
-cd Anime-Feeds-Provider
+cd anime-info-provider-for-pc
 pip3 install -r requirements.txt
 python3 main.py
 ```
